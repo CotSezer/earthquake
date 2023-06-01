@@ -22,7 +22,7 @@ This is a simple Spring Boot application that retrieves earthquake information f
     - IDE: Execute the `main` method in the `EarthquakeApplication` class.
     - Command Line: Run `./gradlew bootRun` in the project's root directory.
 
-5. Access the API endpoints using a tool like cURL or Postman.
+5. Access the API endpoints at port 8080 using a tool like cURL or Postman.
 
 ## API Endpoints
 
