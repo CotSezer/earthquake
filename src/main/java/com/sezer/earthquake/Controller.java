@@ -9,13 +9,27 @@ public class Controller {
 
     Service service = new Service();
 
+    /**
+     * Handles the root URL request and provides instructions on how to use the API.
+     *
+     * @return A string message with instructions on how to use the API.
+     */
     @GetMapping("/")
     public String index() {
-        return "Go to localhost:8080/10 where 10 is number of days for earthquake search";
+        return "Go to localhost:8080/hawaii/10 to get a list of earthquakes happened in Hawaii in last 10 days.";
     }
-    @GetMapping("/{numberOfDays}")
-    public String getEarthquakeController(@PathVariable("numberOfDays") int numberOfDays) {
-        String apiResponse = service.getEarthquakeService(numberOfDays);
+
+    /**
+     * Retrieves earthquake information for a specific country within a given number of days.
+     *
+     * @param country      The country to filter the earthquakes by.
+     * @param numberOfDays The number of days before the current date to search for earthquakes.
+     * @return             A JSON string containing earthquake information for the specified country.
+     */
+    @GetMapping("/{country}/{numberOfDays}")
+    public String getEarthquakeController(@PathVariable("country") String country,
+                                          @PathVariable("numberOfDays") int numberOfDays) {
+        String apiResponse = service.getEarthquakeService(country, numberOfDays);
         return apiResponse;
     }
 }
