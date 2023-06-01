@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Service {
     public String getEarthquakeService(int daysBefore) {
@@ -28,7 +29,12 @@ public class Service {
             JSONObject feature = features.getJSONObject(i);
             JSONObject properties = feature.getJSONObject("properties");
             JSONObject earthquake = new JSONObject();
-            earthquake.put("Magnitude", properties.getDouble("mag"));
+            earthquake.put("Magnitude", properties.get("mag"));
+            System.out.println(properties);
+            earthquake.put("Location", properties.get("place"));
+            long timestamp = properties.getLong("time");
+            Date date = new Date(timestamp);
+            earthquake.put("Date", date);
             earthquakeArray.put(earthquake);
         }
 
