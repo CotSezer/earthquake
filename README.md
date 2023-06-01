@@ -34,12 +34,37 @@ This is a simple Spring Boot application that retrieves earthquake information f
 To retrieve earthquake information for the state of Hawaii within the last 10 days, make a GET request to the following endpoint:
 
 ```
-GET /hawaii/10
+GET /turkey/10
 ```
 
-This will return a JSON response containing the earthquake data specific to Hawaii within the last 10 days.
+This will return a JSON response containing the earthquake data specific to Turkey within the last 10 days.
 
-Note: Replace "hawaii" with the desired country or state name (e.g., "california", "alaska", "russia" etc.) and "10" with the desired number of days.
+Example output:
+```
+[
+  {
+    "Country": "Turkey",
+    "Magnitude": 4,
+    "Date": "Tue May 23 04:12:47 TRT 2023",
+    "Location": "17 km WSW of Göksun, Turkey"
+  },
+  {
+    "Country": "Turkey",
+    "Magnitude": 4.3,
+    "Date": "Mon May 22 19:42:58 TRT 2023",
+    "Location": "18 km SE of Saimbeyli, Turkey"
+  },
+  {
+    "Country": "Turkey",
+    "Magnitude": 4.4,
+    "Date": "Mon May 22 19:06:58 TRT 2023",
+    "Location": "16 km ESE of Saimbeyli, Turkey"
+  }
+]
+
+```
+
+Note: Replace "turkey" with the desired country or state name (e.g., "california", "alaska", "russia" etc.) and "10" with the desired number of days.
 
 ## Dependencies
 
