@@ -1,5 +1,6 @@
 package com.sezer.earthquake;
 
+import com.sezer.earthquake.model.FinalResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,9 +28,8 @@ public class Controller {
      * @return             A JSON string containing earthquake information for the specified country.
      */
     @GetMapping("/{country}/{numberOfDays}")
-    public String getEarthquakeController(@PathVariable("country") String country,
-                                          @PathVariable("numberOfDays") int numberOfDays) {
-        String apiResponse = service.getEarthquakeService(country, numberOfDays);
-        return apiResponse;
+    public FinalResponse getEarthquakeController(@PathVariable("country") String country,
+                                                 @PathVariable("numberOfDays") int numberOfDays) {
+        return service.getEarthquakeService(country, numberOfDays);
     }
 }
